@@ -1,37 +1,68 @@
 class PaperController < ApplicationController
 
   def index
-
-  end
-
-  def new
-
+    @paper = Paper.all
   end
 
   def show
-    @paper = Paper.find(params[:id])
+    @Paper = resource
+    unless @Paper
+      redirect_to root_path
+    end
+    #@paper = Paper.find(params[:id])
+  end
+
+  def new
+    @Paper = Paper.new
   end
 
   def edit
-    @paper = Paper.find(params[:id])
-  end
-
-  def update
-    @paper = Paper.find(params[:id])
-
-    @paper.update(paper_params)
-    redirect_to @paper
+    @Paper = resourceя
   end
 
   def create
-     #render plain: params[:paper].inspect
-    @paper = Paper.new(paper_params)
-
-    @paper.save
-    redirect_to @paper
+    @Paper = Paper.new(paper_params)
+    if @paper.save
+      flash[:success] = "Created!"
+      redirect_to paper_index_path
+    else
+      flash[:danger] = "Incorrect!"
+      render "new"
+    end
+    #@paper = Paper.new(paper_params)
+    #@paper.save
+    #redirect_to @paper
   end
 
-  private def paper_params
+  def update
+    @Paper = resource
+    if @paper.update(paper_params)
+      flash[:success] = "Updated!"
+      redirect_to paper_index_path
+    else
+      flash[:danger] = "Incorrect!!"
+      render "edit"
+    end
+    #@paper = Paper.find(params[:id])
+    #@paper.update(paper_params)
+    #redirect_to @paper
+  end
+
+  def destroy
+    @Paper = resource
+    @paper.destroy
+    flash[:success] = "Deleted!"
+    redirect_to paper_index_path
+end
+
+  private
+
+  def paper_params
     params.require(:paper).permit(:title, :content)
   end
+
+  def resource
+    Paper.find(params[:id])
+  end
+
 end
