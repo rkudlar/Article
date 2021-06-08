@@ -1,0 +1,9 @@
+<%= form_for :paper, url: paper_index_path do |f| %>
+
+  <%= f.text_field :title %>
+
+  <%= f.text_area :content %>
+
+  <%= f.submit %>
+
+<% end %>
