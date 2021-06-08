@@ -5,23 +5,22 @@ class PaperController < ApplicationController
   end
 
   def show
-    @Paper = resource
+    @paper = resource
     unless @Paper
       redirect_to root_path
     end
-    #@paper = Paper.find(params[:id])
   end
 
   def new
-    @Paper = Paper.new
+    @paper = Paper.new
   end
 
   def edit
-    @Paper = resourceя
+    @paper = resourceя
   end
 
   def create
-    @Paper = Paper.new(paper_params)
+    @paper = Paper.new(paper_params)
     if @paper.save
       flash[:success] = "Created!"
       redirect_to paper_index_path
@@ -29,13 +28,10 @@ class PaperController < ApplicationController
       flash[:danger] = "Incorrect!"
       render "new"
     end
-    #@paper = Paper.new(paper_params)
-    #@paper.save
-    #redirect_to @paper
   end
 
   def update
-    @Paper = resource
+    @paper = resource
     if @paper.update(paper_params)
       flash[:success] = "Updated!"
       redirect_to paper_index_path
@@ -43,17 +39,14 @@ class PaperController < ApplicationController
       flash[:danger] = "Incorrect!!"
       render "edit"
     end
-    #@paper = Paper.find(params[:id])
-    #@paper.update(paper_params)
-    #redirect_to @paper
   end
 
   def destroy
-    @Paper = resource
+    @paper = resource
     @paper.destroy
     flash[:success] = "Deleted!"
     redirect_to paper_index_path
-end
+  end
 
   private
 
@@ -64,5 +57,4 @@ end
   def resource
     Paper.find(params[:id])
   end
-
 end
