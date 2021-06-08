@@ -1,10 +1,9 @@
-
 default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: article_rk
-  password: qwertq
+  username: roman
+  password: <%= ENV['ARTICLE_DATABASE_PASSWORD'] %>
   host: localhost
   port: 5432
 
@@ -12,11 +11,9 @@ development:
   <<: *default
   database: Article_development
 
-
 test:
   <<: *default
   database: Article_test
-
 
 production:
   <<: *default
