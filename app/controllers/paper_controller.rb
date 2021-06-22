@@ -16,7 +16,6 @@ class PaperController < ApplicationController
   end
 
   def edit
-    binding.pry
     @paper = resource
   end
 
@@ -32,7 +31,6 @@ class PaperController < ApplicationController
   end
 
   def update
-    binding.pry
     @paper = resource
     if @paper.update(paper_params)
       flash[:success] = "Updated!"
