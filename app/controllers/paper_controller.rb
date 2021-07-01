@@ -6,7 +6,7 @@ class PaperController < ApplicationController
 
   def show
     @paper = resource
-    unless @Paper
+    unless @paper
       redirect_to root_path
     end
   end
@@ -16,7 +16,7 @@ class PaperController < ApplicationController
   end
 
   def edit
-    @paper = resourceя
+    @paper = resource
   end
 
   def create
@@ -24,7 +24,7 @@ class PaperController < ApplicationController
     if @paper.save
       flash[:success] = "Created!"
       redirect_to paper_index_path
-    else
+   else
       flash[:danger] = "Incorrect!"
       render "new"
     end

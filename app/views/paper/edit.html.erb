@@ -1,9 +1,6 @@
-<%= form_for :paper, url: paper_index_path(@paper), method: :path do |f| %>
-
-  <%= f.text_field :title %>
-
-  <%= f.text_area :content %>
+<%= form_for :paper, url: paper_path(@paper), method: :patch do |f| %>
+  <%= f.text_field :title, placeholder: "title" %>
+  <%= f.text_area :content, placeholder: "content" %>
 
   <%= f.submit %>
-
 <% end %>
