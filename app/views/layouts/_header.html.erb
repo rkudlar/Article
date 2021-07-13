@@ -9,7 +9,7 @@
           <li><span class="nav-link px-2 text-secondary"><%= link_to "Home", paper_index_path %></span></li>
           <li><span class="nav-link px-2 text-white"><%= link_to "Add paper", new_paper_path %></span></li>
           <% if user_signed_in? %>
-            <li><span class="nav-link px-2 text-white"><%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: 'nav-link' %></span></li>
+            <li><span class="nav-link px-2 text-white"><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></span></li>
           <% else %>
             <li><span class="nav-link px-2 text-white"><%= link_to "Sign In", new_user_session_path %></span></li>
             <li><span class="nav-link px-2 text-white"><%= link_to "Register", new_user_registration_path %></span></li>
