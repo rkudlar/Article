@@ -2,7 +2,9 @@
 #
 
 Rails.application.routes.draw do
-root 'paper#index'
+  devise_for :users
+  get 'home/index'
+root to: "home#index"
 
 resources :paper
 end
