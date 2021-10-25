@@ -1,8 +1,5 @@
-# == Route Map
-#
-
 Rails.application.routes.draw do
-root 'paper#index'
-
+root to: "home#index"
+devise_for :users
 resources :paper
 end

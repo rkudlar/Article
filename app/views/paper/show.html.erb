@@ -1,3 +1,6 @@
-<%= @paper.title %>
-<%= @paper.content %>
-<%= link_to "edit", edit_paper_path(@paper)%>
+<br>
+<h1><%= @paper.title %></h1>
+<p><%= @paper.content %></p>
+
+<%= link_to "edit", edit_paper_path(@paper), class: 'btn
+ btn-secondary'%>

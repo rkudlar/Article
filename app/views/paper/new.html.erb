@@ -1,6 +1,17 @@
 <%= form_for :paper, url: paper_index_path do |f| %>
-  <%= f.text_field :title, placeholder: "title" %>
-  <%= f.text_area :content, placeholder: "content" %>
+<br>
+  <p>
+    Name <br>
+    <%= f.text_field :title, placeholder: "title", class: 'form-control' %>
+  </p>
 
-  <%= f.submit %>
+  <p>
+    Content <br>
+  <%= f.text_area :content, placeholder: "content", class: 'form-control' %>
+</p>
+
+  <p>
+    <%= f.submit class: 'btn
+     btn-secondary' %>
+  </p>
 <% end %>
