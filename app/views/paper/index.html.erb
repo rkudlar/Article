@@ -1,4 +1,23 @@
 <br>
+
+<%= form_for :link, url: link_index_path do |f| %>
+<br>
+  <p>
+    Long link <br>
+    <%= f.text_field :long_link, placeholder: "Long lonk", class: 'form-control' %>
+  </p>
+
+  <p>
+    Short link <br>
+  <%= f.text_field :short_lonk, placeholder: "Short Link", class: 'form-control' %>
+</p>
+
+  <p>
+    <%= f.submit class: 'btn
+     btn-secondary' %>
+  </p>
+<% end %>
+
 <h1>Всі статті<h1>
 <% @paper.each do |paper| %>
 <div class="row mb-2">
