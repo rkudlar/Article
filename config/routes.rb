@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :paper
   resources :link
 
-  scope :link do
+  scope :short_link do
     get '/:url', to: 'link#url'
   end
 end
