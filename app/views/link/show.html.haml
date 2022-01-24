@@ -1,0 +1,13 @@
+%h1 show
+= form_for :link, url: link_index_path do |f|
+  %br/
+  %p
+    Long link
+    %br/
+    = f.text_field :long_link, placeholder: "Long lonk", class: 'form-control'
+  %p
+    Short link
+    %br/
+    = f.text_field :short_link, placeholder: "Short Link", class: 'form-control', value: 'asd', :readonly => true, :onclick => 'this.select(); navigator.clipboard.writeText(value);'
+  %p
+    = f.submit class: 'btn btn-secondary'

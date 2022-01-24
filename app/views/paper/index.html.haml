@@ -1,0 +1,14 @@
+%br/
+%h1
+  Всі статті
+  = turbo_stream_from "paper"
+  = turbo_frame_tag "paper" do
+    %h1
+      - @paper.each do |paper|
+        .row.mb-2
+          .col-md
+            .row.no-gutters.border.rounded.overflow-hidden.flex-md-row.mb-4.shadow-sm.h-md-250.position-relative
+              .col.p-4.d-flex.flex-column.position-static
+                %h2.mb-0.font-weight-bold= paper.title
+                %p.card-text.mb-auto.h4= paper.content
+                = link_to "Читати дальше", paper_path(paper), class: 'btn btn-outline-primary'
